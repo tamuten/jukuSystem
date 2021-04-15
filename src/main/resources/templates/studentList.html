@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>生徒一覧</title>
+</head>
+<body>
+	<h1>生徒一覧</h1>
+	<hr>
+	<span th:text="${message}"></span>
+	<table>
+		<tr>
+			<th>生徒ID</th>
+			<th>生徒名</th>
+			<th>学年</th>
+		</tr>
+		<tr th:each="student : ${studentList}">
+			<td th:text="${student.id}"></td>
+			<td th:text="${student.name}"></td>
+			<th:block th:switch="${student.grade}">
+				<td th:case=1 th:text="小1"></td>
+				<td th:case=2 th:text="小2"></td>
+				<td th:case=3 th:text="小3"></td>
+				<td th:case=4 th:text="小4"></td>
+				<td th:case=5 th:text="小5"></td>
+				<td th:case=6 th:text="小6"></td>
+				<td th:case=7 th:text="中1"></td>
+				<td th:case=8 th:text="中2"></td>
+				<td th:case=9 th:text="中3"></td>
+			</th:block>
+
+		</tr>
+	</table>
+</body>
+</html>

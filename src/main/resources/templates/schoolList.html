@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div th:fragment="userList_contents">
+		<div class="page-header">
+			<h1>加盟塾一覧</h1>
+		</div>
+		<table class="table table-bordered table-hover table-striped">
+			<tr>
+				<th class="info col-sm-2">店舗ID</th>
+				<th class="info col-sm-2">店舗名</th>
+				<th class="info col-sm-2">ふりがな</th>
+				<th class="info col-sm-2">住所</th>
+				<th class="info col-sm-2">郵便番号</th>
+				<th class="info col-sm-2"></th>
+			</tr>
+			<tr th:each="school : ${page}">
+				<td th:text="${school.schoolId}"></td>
+				<td th:text="${school.schoolName}"></td>
+				<td th:text="${school.schoolNameKana}"></td>
+				<td th:text="${school.address}"></td>
+				<td th:text="${school.zipcode}"></td>
+				<td>
+					<a class="btn btn-primary"
+					th:href="@{'/storeDetail/' + ${school.schoolId}}">詳細</a>
+				</td>
+			</tr>
+		</table>
+		<!-- <label th:text=" '合計：' + ${storeListCount} + '件' "></label>
+		<br>
+		<label class="text-info" th:text="${result}">結果表示</label>
+		<br> -->
+		<a class="btn btn-primary" th:href="@{'/storeList/csv'}">CSV出力</a>
+	</div>
+</body>
+</html>

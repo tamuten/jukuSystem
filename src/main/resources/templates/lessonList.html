@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>授業一覧</title>
+</head>
+<body>
+	<h1>授業一覧</h1>
+	<hr>
+	<span th:text="${message}"></span>
+	<table>
+		<tr>
+			<th>授業ID</th>
+			<th>授業名</th>
+			<th>別名</th>
+			<th>時間</th>
+		</tr>
+		<tr th:each="lesson : ${lessonList}">
+			<td th:text="${lesson.id}"></td>
+			<td th:text="${lesson.name}"></td>
+			<td th:text="${lesson.alias}"></td>
+			<td th:text="${lesson.time} + '分'"></td>
+		</tr>
+	</table>
+</body>
+</html>

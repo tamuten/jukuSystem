@@ -1,0 +1,23 @@
+INSERT
+    INTO
+        m_school(
+            school_name
+            ,school_name_kana
+            ,school_abbreviated_name
+            ,address
+            ,zipcode
+            ,manager
+            ,delete_flg
+            ,update_time
+        )
+    VALUES
+        (
+            ?
+            ,?
+            ,?
+            ,?
+            ,?
+            ,?
+            ,?
+            ,?
+        );
